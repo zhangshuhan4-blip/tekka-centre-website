@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover the heritage, multicultural identity, food culture, tourism appeal and community legacy of Tekka Centre in Singapore.">
+  <title>Tekka Centre | Five Points of Significance</title>
+  <style>
+    :root {
+      --bg: #f7f3eb;
+      --paper: #fffdf8;
+      --ink: #252c26;
+      --muted: #657067;
+      --green: #285b45;
+      --green-dark: #194331;
+      --orange: #d77a43;
+      --line: #ded8ca;
+      --soft-green: #e8efe8;
+      --soft-orange: #f8e9dc;
+      --shadow: 0 12px 35px rgba(35, 45, 35, .08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .page { max-width: 1120px; width: calc(100% - 40px); margin: 0 auto; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line);
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 850; letter-spacing: .04em; }
+    .brand-mark {
+      display: grid; place-items: center; width: 38px; height: 38px;
+      border-radius: 12px; background: var(--green); color: white; font-size: 20px;
+    }
+    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    nav a { text-decoration: none; color: var(--muted); font-size: 13px; font-weight: 700; }
+    nav a:hover { color: var(--green); }
+    .hero {
+      margin: 30px 0 24px; min-height: 300px; border-radius: 24px; overflow: hidden;
+      display: grid; grid-template-columns: 1.25fr .75fr; background: var(--green); color: white;
+      box-shadow: var(--shadow);
+    }
+    .hero-copy { padding: clamp(28px, 5vw, 58px); align-self: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px;
+      font-size: 11px; letter-spacing: .15em; font-weight: 850; text-transform: uppercase;
+      color: #f2c7a7;
+    }
+    .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--orange); }
+    h1 { max-width: 640px; font-size: clamp(34px, 5.5vw, 62px); line-height: 1.04; letter-spacing: -.045em; }
+    .hero p { margin-top: 18px; max-width: 540px; color: #e1eae3; font-size: 16px; }
+    .hero-art {
+      min-height: 260px; position: relative; overflow: hidden; display: grid; place-items: center;
+      background: radial-gradient(circle at 55% 45%, #f4bd81 0 8%, transparent 8.5%),
+                  radial-gradient(circle at 50% 50%, #d77a43 0 22%, transparent 22.5%),
+                  radial-gradient(circle at 50% 50%, #e7a66e 0 37%, transparent 37.5%),
+                  linear-gradient(135deg, #356b50, #173d2d);
+    }
+    .hero-art::before, .hero-art::after {
+      content: ""; position: absolute; width: 240px; height: 240px; border: 1px solid rgba(255,255,255,.22);
+      border-radius: 50%;
+    }
+    .hero-art::after { width: 320px; height: 320px; }
+    .market-stamp {
+      z-index: 1; width: 118px; height: 118px; border: 2px solid rgba(255,255,255,.8);
+      border-radius: 50%; display: grid; place-items: center; text-align: center;
+      font-size: 13px; font-weight: 900; letter-spacing: .12em; line-height: 1.3;
+      transform: rotate(-10deg); background: rgba(25,67,49,.45);
+    }
+    .intro-row { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin: 34px 0 18px; }
+    .section-kicker { color: var(--orange); font-weight: 850; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+    h2.section-title { font-size: clamp(25px, 3vw, 34px); line-height: 1.2; letter-spacing: -.03em; margin-top: 5px; }
+    .intro-note { max-width: 330px; color: var(--muted); font-size: 13px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .card {
+      position: relative; padding: 26px; background: var(--paper); border: 1px solid var(--line);
+      border-radius: 18px; box-shadow: 0 5px 20px rgba(35,45,35,.025);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .card.featured { grid-column: 1 / -1; background: var(--soft-green); border-color: #cad9ca; }
+    .card-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 15px; }
+    .tag {
+      display: inline-flex; align-items: center; padding: 5px 10px; border-radius: 999px;
+      background: var(--soft-orange); color: #87451f; font-size: 10px; font-weight: 900;
+      text-transform: uppercase; letter-spacing: .09em;
+    }
+    .featured .tag { background: var(--green); color: white; }
+    .number { color: #b8b6a9; font-size: 28px; font-weight: 900; letter-spacing: -.06em; }
+    .card h3 { font-size: 21px; line-height: 1.25; margin-bottom: 14px; letter-spacing: -.02em; }
+    .card ul { list-style: none; display: grid; gap: 12px; }
+    .card li { position: relative; padding-left: 20px; color: #525c53; font-size: 14px; }
+    .card li::before { content: ""; position: absolute; left: 1px; top: .65em; width: 7px; height: 7px; background: var(--orange); border-radius: 2px; transform: rotate(45deg); }
+    .card strong { color: var(--ink); }
+    .featured-content { display: grid; grid-template-columns: .7fr 1.3fr; gap: 28px; align-items: start; }
+    .featured-aside { padding: 18px; background: rgba(255,255,255,.58); border-radius: 14px; }
+    .featured-aside .big-quote { font-family: Georgia, serif; color: var(--green); font-size: 48px; line-height: .9; }
+    .featured-aside p { margin-top: 12px; font-size: 14px; color: var(--muted); }
+    .timeline {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0 42px;
+    }
+    .time-item { padding: 18px; border-top: 3px solid var(--orange); background: #eee8dc; border-radius: 0 0 12px 12px; }
+    .time-item strong { display: block; font-size: 22px; color: var(--green); }
+    .time-item span { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; }
+    footer {
+      display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap;
+      padding: 22px 0 30px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px;
+    }
+    .footer-title { color: var(--green); font-weight: 900; letter-spacing: .07em; }
+    @media (max-width: 720px) {
+      .page { width: calc(100% - 26px); }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      nav { gap: 14px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-art { min-height: 170px; }
+      .hero-art::before { width: 170px; height: 170px; }
+      .hero-art::after { width: 230px; height: 230px; }
+      .market-stamp { width: 92px; height: 92px; font-size: 11px; }
+      .grid { grid-template-columns: 1fr; }
+      .card.featured { grid-column: auto; }
+      .featured-content { grid-template-columns: 1fr; }
+      .intro-row { align-items: flex-start; flex-direction: column; }
+      .timeline { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .card { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <a class="brand" href="#top" style="text-decoration:none" aria-label="Tekka Centre home">
+        <span class="brand-mark">T</span><span>TEKKA CENTRE</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#significance">Five points</a>
+        <a href="#timeline">Timeline</a>
+      </nav>
+    </div>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="main-title">
+        <div class="hero-copy">
+          <div class="eyebrow">A living landmark of Singapore</div>
+          <h1 id="main-title">More than a market.</h1>
+          <p>Discover how Tekka Centre brings together heritage, cultures, food traditions and community life in the heart of Little India.</p>
+        </div>
+        <div class="hero-art" aria-label="Decorative market-inspired illustration">
+          <div class="market-stamp">LITTLE<br>INDIA<br>• SINGAPORE •</div>
+        </div>
+      </section>
+
+      <section id="significance" aria-labelledby="points-title">
+        <div class="intro-row">
+          <div>
+            <div class="section-kicker">Five points of significance</div>
+            <h2 class="section-title" id="points-title">The importance of Tekka Centre</h2>
+          </div>
+          <p class="intro-note">From its historic roots to its role today, each part of Tekka tells a story about Singapore.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card-top"><span class="tag">Point 01 · Heritage</span><span class="number">01</span></div>
+            <h3>Heritage Anchor of Little India</h3>
+            <ul>
+              <li><strong>Origins:</strong> Established in 1915 as the “Kandang Kerbau” (Buffalo Enclosure) Market.</li>
+              <li><strong>Social anchor:</strong> For generations, the market has been an important gathering place in the Little India historic district.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-top"><span class="tag">Point 03 · Function</span><span class="number">03</span></div>
+            <h3>An Unrivalled Ingredient Hub</h3>
+            <ul>
+              <li><strong>For cooks:</strong> The market serves home cooks and food professionals looking for ingredients beyond the usual supermarket range.</li>
+              <li><strong>Specialties:</strong> Shoppers can find South Asian vegetables, fresh meat and freshly prepared coconut milk (santan).</li>
+            </ul>
+          </article>
+
+          <article class="card featured">
+            <div class="card-top"><span class="tag">Point 02 · Core identity</span><span class="number">02</span></div>
+            <div class="featured-content">
+              <div>
+                <h3>A Multicultural Microcosm</h3>
+                <p style="color:var(--muted);font-size:14px">Tekka Centre reflects Singapore’s diversity through everyday interactions between stallholders and customers.</p>
+              </div>
+              <ul>
+                <li><strong>Side-by-side harmony:</strong> Chinese, Malay and Indian communities share the same marketplace.</li>
+                <li><strong>Linguistic fluidity:</strong> Vendors and customers may communicate in English, Hokkien, Tamil, Malay and other languages, helping people from different backgrounds connect.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top"><span class="tag">Point 04 · Tourism</span><span class="number">04</span></div>
+            <h3>A Culinary Tourism Landmark</h3>
+            <ul>
+              <li><strong>Dual experience:</strong> Visitors can explore the wet market and enjoy food at the hawker centre within the same complex.</li>
+              <li><strong>Sensory space:</strong> The sights, sounds, aromas and ingredients offer visitors a close-up look at Singapore’s food culture.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-top"><span class="tag">Point 05 · Legacy</span><span class="number">05</span></div>
+            <h3>A Symbol of Community Resilience</h3>
+            <ul>
+              <li><strong>Name conflict:</strong> The centre was renamed “Zhujiao Centre” in 1982, a name that was not widely embraced by the public.</li>
+              <li><strong>Reclaimed identity:</strong> The name “Tekka Centre” was restored in 2000, reflecting the community’s attachment to the familiar name and its heritage.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="timeline" aria-labelledby="timeline-title">
+        <div class="intro-row">
+          <div>
+            <div class="section-kicker">A quick look back</div>
+            <h2 class="section-title" id="timeline-title">A story across generations</h2>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="time-item"><strong>1915</strong><span>Market roots at Kandang Kerbau</span></div>
+          <div class="time-item"><strong>1982</strong><span>Relocation and the name Zhujiao Centre</span></div>
+          <div class="time-item"><strong>2000</strong><span>The name Tekka Centre restored</span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span class="footer-title">TEKKA CENTRE · SINGAPORE</span>
+      <span>A living marketplace shaped by food, heritage and community.</span>
+    </footer>
+  </div>
+</body>
+</html>
